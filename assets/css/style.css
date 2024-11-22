@@ -1,0 +1,13 @@
+header {
+    
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+.login_buttons {
+    float: right;
+}
+img {
+    height: 200px;
+}

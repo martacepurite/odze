@@ -1,7 +1,16 @@
+<script>
+import '~/assets/css/style.css'
+</script>
+
+
 <template>
-    <h1>Index page</h1>
-    <ul>
-        <li><NuxtLink to="/login">Ielogoties</NuxtLink></li>
-        <li><NuxtLink to="/register">Reģistrēties</NuxtLink></li>
-    </ul>
-</template>
+    <header>
+        <img src="public/logo.png">
+            <div class="login_buttons">
+
+     <NuxtLink to="/login">Ielogoties</NuxtLink>
+        <NuxtLink to="/register">Reģistrēties</NuxtLink>
+            </div>
+
+     </header>
+      </template>
