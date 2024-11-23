@@ -3,5 +3,5 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   pages: true,
-  modules: ["@prisma/nuxt"],
+  modules: ["@prisma/nuxt", "@pinia/nuxt"],
 })

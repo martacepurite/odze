@@ -1,22 +1,24 @@
 <script setup>
+import { storeToRefs } from 'pinia';
+import { useAuthStore } from '~/store/auth';
 import {ref} from 'vue'
+
+const { login } = useAuthStore();
+
+const { user_id } = storeToRefs(useAuthStore())
+const { authenticated } = storeToRefs(useAuthStore())
 
 const email = ref('')
 const password = ref('')
+const message = ref('')
 
-async function login(){
-   const user = await $fetch('/api/get_user_email',{
-        method: 'POST',
-        body: {
-            email: email.value,
-            
-        }
-    })
-    if(user.user !== null){
-      //alert(user.user.id)
-      navigateTo(`/users/${user.user.id}`)
-    }else{ 
-      alert("not found")
+async function loginUser(){
+   await login(email.value);
+
+    if(authenticated){
+        navigateTo(`/users/${user_id.value}`)
+    }else{
+        message.value = "User not found"
     }
 }
 
@@ -25,11 +27,11 @@ async function login(){
 
 <template>
   <h1>Ielogošanās</h1>
-  <form v-on:submit.prevent="login">
+  <form v-on:submit.prevent="loginUser">
 
         E-pasts: <input v-model="email" /><br>
         Parole: <input v-model="password" /><br>
-        
+        <p>{{ message }}</p>
     <input type="submit" value="Ielogoties">
   </form>
 </template>

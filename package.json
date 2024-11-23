@@ -10,12 +10,17 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@pinia/nuxt": "^0.7.0",
     "@prisma/nuxt": "^0.1.0",
     "nuxt": "^3.14.1592",
+    "pinia": "^2.2.6",
     "vue": "latest",
     "vue-router": "latest"
   },
   "devDependencies": {
     "@prisma/client": "^5.22.0"
+  },
+  "overrides": {
+    "vue": "latest"
   }
 }
