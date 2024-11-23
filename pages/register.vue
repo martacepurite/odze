@@ -7,16 +7,23 @@ const password_again = ref('')
 const type = ref('')
 const organization = ref('')
 
-function register(event){
-    event.preventDefault()
-    alert(email.value)
+async function register(){
+   const user = await $fetch('/api/register',{
+        method: 'POST',
+        body: {
+            email: email.value,
+            password: password.value,
+            isAdmin: true
+        }
+    })
+    navigateTo("/") 
 }
 </script>
 
 
 <template>
   <h1>Reģistrācija</h1>
-  <form name="login_form" @submit="register">
+  <form v-on:submit.prevent="register">
 
         E-pasts: <input v-model="email" /><br>
         Parole: <input v-model="password" /><br>

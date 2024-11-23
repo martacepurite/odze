@@ -13,15 +13,30 @@ datasource db {
 model User {
   id    Int     @id @default(autoincrement())
   email String  @unique
-  name  String?
-  posts Post[]
+  password String
+  isAdmin Boolean
+  organization Organization? @relation(fields: [orgId], references: [id])
+  orgId Int?
 }
 
-model Post {
+model Organization {
   id        Int     @id @default(autoincrement())
-  title     String
-  content   String?
-  published Boolean @default(false)
-  author    User    @relation(fields: [authorId], references: [id])
-  authorId  Int
+  name     String
+  members User[]
+  tables Table[]
+}
+
+model Table {
+  id    Int     @id @default(autoincrement())
+  organization Organization @relation(fields: [orgId], references: [id])
+  orgId Int
+  entries Entry[]
+}
+
+model Entry {
+  id    Int     @id @default(autoincrement())
+  title String
+  value Float
+  table Table @relation(fields: [tableId], references: [id])
+  tableId Int
 }
