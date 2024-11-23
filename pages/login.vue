@@ -4,16 +4,28 @@ import {ref} from 'vue'
 const email = ref('')
 const password = ref('')
 
-function login(event){
-    event.preventDefault()
-    alert(email.value)
+async function login(){
+   const user = await $fetch('/api/get_user_email',{
+        method: 'POST',
+        body: {
+            email: email.value,
+            
+        }
+    })
+    if(user.user !== null){
+      //alert(user.user.id)
+      navigateTo(`/users/${user.user.id}`)
+    }else{ 
+      alert("not found")
+    }
 }
+
 </script>
 
 
 <template>
   <h1>Ielogošanās</h1>
-  <form name="login_form" @submit="login">
+  <form v-on:submit.prevent="login">
 
         E-pasts: <input v-model="email" /><br>
         Parole: <input v-model="password" /><br>
