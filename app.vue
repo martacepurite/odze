@@ -22,8 +22,12 @@ function logoutUser(){
         </a>
           <div class="login_buttons">
 
-            <NuxtLink v-show="!store.isLoggedIn" to="/login">Ielogoties</NuxtLink>
-            <NuxtLink v-show="!store.isLoggedIn" to="/register">Reģistrēties</NuxtLink>
+            <NuxtLink v-show="!store.isLoggedIn" to="/login">
+              <button>Ielogoties</button> 
+            </NuxtLink>
+            <NuxtLink v-show="!store.isLoggedIn" to="/register">
+              <button>Reģistrēties</button> 
+            </NuxtLink>
             <button v-show="store.isLoggedIn" v-on:click="logoutUser">Iziet</button>
           </div>
 
