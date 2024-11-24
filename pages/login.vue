@@ -13,7 +13,7 @@ const password = ref('')
 const message = ref('')
 
 async function loginUser(){
-   await login(email.value);
+   await login(email.value, password.value)
 
     if(authenticated){
         navigateTo(`/users/${user_id.value}`)
@@ -26,9 +26,8 @@ async function loginUser(){
 
 
 <template>
+  <form class="login-box" v-on:submit.prevent="loginUser">
   <h1>Ielogošanās</h1>
-  <form v-on:submit.prevent="loginUser">
-
         E-pasts: <input v-model="email" /><br>
         Parole: <input v-model="password" /><br>
         <p>{{ message }}</p>

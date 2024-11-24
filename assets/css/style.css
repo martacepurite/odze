@@ -1,13 +1,23 @@
 header {
     
-    margin-top: 5%;
-    margin-bottom: 5%;
-    margin-right: 5%;
-    margin-left: 5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-right: 2%;
+    margin-left: 2%;
 }
 .login_buttons {
+     margin-top: 2%;
+    margin-bottom: 2%;
+    margin-right: 2%;
+    margin-left: 2%;
     float: right;
 }
+.login-box {
+    margin:auto;
+    width: 30%;
+    padding: 3%;
+    background-color: antiquewhite;
+}
 img {
-    height: 200px;
+    height: 150px;
 }

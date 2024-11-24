@@ -8,7 +8,7 @@ export const useAuthStore = defineStore('auth', {
     }),
     actions: {
 
-        async login(email: any) {
+        async login(email: any, password: any){
 
             const user = await $fetch('/api/get_user_email',{
                 method: 'POST',
@@ -18,15 +18,22 @@ export const useAuthStore = defineStore('auth', {
             })
 
             if(user.user !== null){
-                this.authenticated = true
-                this.user_id = user.user.id
-            }
+                if(user.user.password === password){
 
+                    this.authenticated = true
+                    this.user_id = user.user.id
+                }
+            }
         },
 
         logout() {
             this.authenticated = false
             this.user_id = 0
+        }
+    },
+    getters: {
+        isLoggedIn(state){
+            return state.authenticated
         }
     }
 

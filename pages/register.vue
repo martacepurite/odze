@@ -22,8 +22,8 @@ async function register(){
 
 
 <template>
+  <form class="login-box" v-on:submit.prevent="register">
   <h1>Reģistrācija</h1>
-  <form v-on:submit.prevent="register">
 
         E-pasts: <input v-model="email" /><br>
         Parole: <input v-model="password" /><br>
