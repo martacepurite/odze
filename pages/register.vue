@@ -53,7 +53,8 @@ async function register_admin(){
      const org = await $fetch('/api/create_org',{
         method: 'POST',
         body: {
-            name: organization.value 
+            name: organization.value,
+            isPrivate: false 
         }
     })
 
@@ -74,7 +75,8 @@ async function register_private(){
     const organization = await $fetch('/api/create_org',{
         method: 'POST',
         body: {
-            name: email.value + "_org" 
+            name: email.value + "_org",
+            isPrivate: true
         }
     })
 

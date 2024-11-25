@@ -14,6 +14,10 @@ header {
     grid-auto-flow: column;
     grid-auto-columns: 45%;
 }
+.user-menu {
+    display: grid;
+    width: 10%;
+}
 
 .main-filler {
     padding: 4%;

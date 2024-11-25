@@ -21,6 +21,7 @@ model User {
 
 model Organization {
   id        Int     @id @default(autoincrement())
+  isPrivate Boolean @default(true)
   name     String   @unique
   members User[]
   tables Table[]
