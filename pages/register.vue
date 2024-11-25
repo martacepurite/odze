@@ -10,37 +10,87 @@ const message = ref('')
 
 function password_check(){
     if(password.value === password_again.value){
-        validate()
+        validate_user()
     }else{
         message.value = 'Passwords do not match'
     }
 }
-async function validate(){
+
+async function validate_user(){
     const user = await $fetch('/api/get_user_email',{
         method: 'POST',
         body: {
             email: email.value,
         }
     })
-   if(user.user === null){
-    register()
-   }else{
+
+   if(user.user !==null){
         message.value = 'Email taken'
+   }else if(type.value === 'admin'){
+        validate_org()
+   }else if(type.value === 'standart'){
+        register_private()
    }
 }
 
-async function register(){
+async function validate_org(){
+     const org = await $fetch('/api/get_org_name',{
+        method: 'POST',
+        body: {
+            name: organization.value,
+        }
+    })
+
+    if(org.organization !== null){
+        message.value = 'Organization exists'
+    }else{
+        register_admin()
+    }
+
+}
+
+async function register_admin(){
+     const org = await $fetch('/api/create_org',{
+        method: 'POST',
+        body: {
+            name: organization.value 
+        }
+    })
+
+
    const user = await $fetch('/api/register',{
         method: 'POST',
         body: {
             email: email.value,
             password: password.value,
-            isAdmin: true
+            isAdmin: true,
+            orgId: org.organization.id
         }
     })
     alert("Great success!")
     navigateTo("/login") 
 }
+async function register_private(){
+    const organization = await $fetch('/api/create_org',{
+        method: 'POST',
+        body: {
+            name: email.value + "_org" 
+        }
+    })
+
+   const user = await $fetch('/api/register',{
+        method: 'POST',
+        body: {
+            email: email.value,
+            password: password.value,
+            isAdmin: true,
+            orgId: organization.organization.id
+        }
+    })
+    alert("Great success!")
+    navigateTo("/login") 
+}
+
 </script>
 
 
@@ -53,10 +103,10 @@ async function register(){
         
             Konta tips:
             <select v-model="type" required>
-                <option>Organizācijas administrators</option>
-                <option>Standarta lietotājs</option>
+                <option value="admin">Organizācijas administrators</option>
+                <option value="standart">Standarta lietotājs</option>
             </select><br>
-        <div v-if="type === 'Organizācijas administrators'">
+        <div v-if="type === 'admin'">
             Organizācijas nosaukums: <input v-model="organization" required/><br>
         </div>
         <p>{{ message }}</p>

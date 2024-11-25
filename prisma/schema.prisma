@@ -21,7 +21,7 @@ model User {
 
 model Organization {
   id        Int     @id @default(autoincrement())
-  name     String
+  name     String   @unique
   members User[]
   tables Table[]
 }

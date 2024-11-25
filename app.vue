@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import '~/assets/css/style.css'
 
+import { storeToRefs } from 'pinia';
 import { useAuthStore } from '~/store/auth';
-const store = useAuthStore()
 
-const { logout } = useAuthStore()
+const { authenticated } = storeToRefs(useAuthStore()) 
+
+const { logout } = useAuthStore() 
 
 function logoutUser(){
    logout()
@@ -22,13 +24,13 @@ function logoutUser(){
         </a>
           <div class="login_buttons">
 
-            <NuxtLink v-show="!store.isLoggedIn" to="/login">
+            <NuxtLink v-show="!authenticated" to="/login">
               <button>Ielogoties</button> 
             </NuxtLink>
-            <NuxtLink v-show="!store.isLoggedIn" to="/register">
+            <NuxtLink v-show="!authenticated" to="/register">
               <button>Reģistrēties</button> 
             </NuxtLink>
-            <button v-show="store.isLoggedIn" v-on:click="logoutUser">Iziet</button>
+            <button v-show="authenticated" v-on:click="logoutUser">Iziet</button>
           </div>
 
      </header>

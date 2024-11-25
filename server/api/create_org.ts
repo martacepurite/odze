@@ -3,13 +3,9 @@ import prisma from "~/lib/prisma";
 export default defineEventHandler(async (event) => {
     const body = await readBody(event)
     return {
-      users: await prisma.user.create({
+      organization: await prisma.organization.create({
         data: {
-            email: body.email,
-            password: body.password,
-            isAdmin: body.isAdmin,
-            orgId :body.orgId
-            
+            name: body.name,
         }
       })
     };
