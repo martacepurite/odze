@@ -21,13 +21,5 @@ const { data: org_data}  = await useFetch('/api/get_org_id',{
 </script>
 
 <template>
-    <div class="user-menu">
             <p>{{ user_data?.user?.email }}</p>
-    <p v-show="!org_data.organization.isPrivate">{{ org_data?.organization.name}}</p>
-
-        <button>Rēķinu pārvalde</button>
-        <button>Datu vizualizācija</button>
-        <button>Pārskati</button>
-        <button>Manas tabulas</button>
-    </div>
 </template>

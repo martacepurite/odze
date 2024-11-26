@@ -64,7 +64,7 @@ async function register_admin(){
         body: {
             email: email.value,
             password: password.value,
-            isAdmin: true,
+            userType: 'orgadmins',
             orgId: org.organization.id
         }
     })
@@ -85,7 +85,7 @@ async function register_private(){
         body: {
             email: email.value,
             password: password.value,
-            isAdmin: true,
+            userType: 'privusers',
             orgId: organization.organization.id
         }
     })

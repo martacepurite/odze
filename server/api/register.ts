@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
         data: {
             email: body.email,
             password: body.password,
-            isAdmin: body.isAdmin,
+            userType: body.userType,
             orgId :body.orgId
             
         }

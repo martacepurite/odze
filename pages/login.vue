@@ -7,6 +7,7 @@ const { login } = useAuthStore();
 
 const { user_id } = storeToRefs(useAuthStore())
 const { authenticated } = storeToRefs(useAuthStore())
+const { usertype } = storeToRefs(useAuthStore())
 
 const email = ref('')
 const password = ref('')
@@ -16,7 +17,7 @@ async function loginUser(){
    await login(email.value, password.value)
 
     if(authenticated){
-        navigateTo(`/users/${user_id.value}`)
+        navigateTo(`/users/${usertype.value}/${user_id.value}`)
     }else{
         message.value = "User not found"
     }

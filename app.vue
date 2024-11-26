@@ -4,10 +4,9 @@ import { useAuthStore } from './store/auth';
 
 import { storeToRefs } from 'pinia';
 
-//const store = useAuthStore()
-
 const { authenticated } = storeToRefs(useAuthStore()) 
 const { user_id } = storeToRefs(useAuthStore()) 
+const { usertype } = storeToRefs(useAuthStore()) 
 
 const { logout } = useAuthStore() 
 
@@ -18,7 +17,7 @@ function logoutUser(){
 
 function gotoUserPage(){
   
-   navigateTo(`/users/${user_id.value}`)
+   navigateTo(`/users/${usertype.value}/${user_id.value}`)
 }
 
 
