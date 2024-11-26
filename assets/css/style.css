@@ -5,6 +5,13 @@ header {
     margin-right: 2%;
     margin-left: 2%;
 }
+
+.contents-view {
+    float: left;
+    background-color: beige;
+    padding: 10px;
+    margin: 2%;
+}
 .filler-text {
     font-family: Arial, Helvetica, sans-serif;
     margin: auto;
@@ -15,6 +22,7 @@ header {
     grid-auto-columns: 45%;
 }
 .user-menu {
+    float: left;
     display: grid;
     width: 10%;
 }

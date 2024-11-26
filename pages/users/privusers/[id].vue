@@ -21,5 +21,7 @@ const { data: org_data}  = await useFetch('/api/get_org_id',{
 </script>
 
 <template>
-            <p>{{ user_data?.user?.email }}</p>
+            <p>e-mail: {{ user_data?.user?.email }}</p>
+            <p>e-mail: {{ org_data.organization.isPrivate}}</p>
+
 </template>

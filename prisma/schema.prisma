@@ -29,6 +29,7 @@ model Organization {
 
 model Table {
   id    Int     @id @default(autoincrement())
+  name String
   organization Organization @relation(fields: [orgId], references: [id])
   orgId Int
   entries Entry[]
