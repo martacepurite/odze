@@ -16,7 +16,7 @@ const message = ref('')
 async function loginUser(){
    await login(email.value, password.value)
 
-    if(authenticated){
+    if(usertype.value && authenticated){
         navigateTo(`/users/${usertype.value}/${user_id.value}`)
     }else{
         message.value = "User not found"
