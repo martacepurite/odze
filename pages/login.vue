@@ -28,62 +28,28 @@ async function loginUser() {
 
 
 <template>
-  <div class="kermenis">
-    <section> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span> <span></span>
-      <span></span> <span></span> <span></span> <span></span> <span></span>
-      <div class="signin">
-        <div class="content">
-          <h2>Ielogošanās</h2>
-          <form class="form" v-on:submit.prevent="loginUser"> <!-- class="login-box" -->
-            <div class="inputBox">
-              <input v-model="email" /> <i>E-pasts:</i>
-            </div>
-            <div class="inputBox">
-              <input v-model="password" /> <i>Parole:</i>
-            </div>
-            <div class="links">
-              <a href="/register">Reģistrēties</a>
-            </div>
-            <p style="color:red; text-align: center;">{{ message }}</p>
-            <div class="inputBox">
-              <input type="submit" value="Ielogoties">
-            </div>
-          </form>
-        </div>
+  <section>
+    <div class="signin">
+      <div class="content">
+        <h2>Ielogošanās</h2>
+        <form class="form" v-on:submit.prevent="loginUser"> <!-- class="login-box" -->
+          <div class="inputBox">
+            <input v-model="email" required /> <i>E-pasts:</i>
+          </div>
+          <div class="inputBox">
+            <input v-model="password" required /> <i>Parole:</i>
+          </div>
+          <div class="links">
+            <a href="/register">Reģistrēties</a>
+          </div>
+          <p style="color:red; text-align: center;">{{ message }}</p>
+          <div class="inputBox">
+            <input type="submit" value="Ielogoties">
+          </div>
+        </form>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 </template>
 
 
@@ -97,58 +63,16 @@ async function loginUser() {
   font-family: 'Quicksand', sans-serif;
 }
 
-.kermenis {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: #000;
-}
-
 section {
   position: absolute;
-  width: 100vw;
-  height: 100vh;
+  width: 99vw;
+  height: 69vh;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2px;
   flex-wrap: wrap;
   overflow: hidden;
-}
-
-section::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(#000, #0f0, #000);
-  animation: animate 5s linear infinite;
-}
-
-@keyframes animate {
-  0% {
-    transform: translateY(-100%);
-  }
-
-  100% {
-    transform: translateY(100%);
-  }
-}
-
-section span {
-  position: relative;
-  display: block;
-  width: calc(6.25vw - 2px);
-  height: calc(6.25vw - 2px);
-  background: #181818;
-  z-index: 2;
-  transition: 1.5s;
-}
-
-section span:hover {
-  background: #0f0;
-  transition: 0s;
 }
 
 section .signin {
@@ -176,7 +100,7 @@ section .signin .content {
 
 section .signin .content h2 {
   font-size: 2em;
-  color: #0f0;
+  color: green;
   text-transform: uppercase;
 }
 
@@ -235,13 +159,13 @@ section .signin .content .form .inputBox i {
 }
 
 .signin .content .form .links a:nth-child(2) {
-  color: #0f0;
+  color: green;
   font-weight: 600;
 }
 
 .signin .content .form .inputBox input[type="submit"] {
   padding: 10px;
-  background: #0f0;
+  background: green;
   color: #000;
   font-weight: 600;
   font-size: 1.35em;
@@ -251,19 +175,5 @@ section .signin .content .form .inputBox i {
 
 input[type="submit"]:active {
   opacity: 0.6;
-}
-
-@media (max-width: 900px) {
-  section span {
-    width: calc(10vw - 2px);
-    height: calc(10vw - 2px);
-  }
-}
-
-@media (max-width: 600px) {
-  section span {
-    width: calc(20vw - 2px);
-    height: calc(20vw - 2px);
-  }
 }
 </style>
