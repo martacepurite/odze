@@ -25,25 +25,25 @@ function gotoUserPage(){
 </script>
 
 <template>
-      <header>
-        <NuxtLink to="/">
-
-        <img src="public/logo.png">
-        </NuxtLink>
-          <div class="login_buttons">
-            <NuxtLink v-show="!authenticated" to="/login">
-              <button>Ielogoties</button> 
-            </NuxtLink>
-            <NuxtLink v-show="!authenticated" to="/register">
-              <button>Reģistrēties</button> 
-            </NuxtLink>
-            <button v-show="authenticated" v-on:click="gotoUserPage">Mana Odze</button>
-            <button v-show="authenticated" v-on:click="logoutUser">Iziet</button>
-          </div>
-
-     </header>
-     
   <div>
-    <NuxtPage/>
+    <header>
+      <NuxtLink to="/">
+
+      <img src="public/logo.png">
+      </NuxtLink>
+        <div class="login_buttons">
+          <NuxtLink v-show="!authenticated" to="/login">
+            <button>Ielogoties</button> 
+          </NuxtLink>
+          <NuxtLink v-show="!authenticated" to="/register">
+            <button>Reģistrēties</button> 
+          </NuxtLink>
+          <button v-show="authenticated" v-on:click="gotoUserPage">Mana Odze</button>
+          <button v-show="authenticated" v-on:click="logoutUser">Iziet</button>
+        </div>
+    </header>
+    <div> 
+      <NuxtPage />
+    </div>
   </div>
 </template>
