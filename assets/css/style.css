@@ -5,6 +5,10 @@ header {
     margin-right: 2%;
     margin-left: 2%;
 }
+li {
+    list-style-type: none;
+
+}
 
 .contents-view {
     float: left;

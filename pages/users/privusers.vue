@@ -1,6 +1,10 @@
 <script setup>
-const route = useRoute()
-console.log(route.params)
+import { storeToRefs } from 'pinia';
+import { useAuthStore } from '~/store/auth';
+
+const { user_id } = storeToRefs(useAuthStore())
+const { authenticated } = storeToRefs(useAuthStore())
+
 </script>
 
 
@@ -9,7 +13,7 @@ console.log(route.params)
     <h1>Welcome private user</h1>
 
     <div class="user-menu">
-      <NuxtLink :to="{ name: 'users-privusers-id-tables', params: { id: route.params.id}}">
+      <NuxtLink :to="{ name: 'users-privusers-id-tables', params: { id: user_id}}">
         <button>Manas tabulas</button>
       </NuxtLink>
         <button>Rēķinu pārvalde</button>
