@@ -25,29 +25,33 @@ function gotoUserPage() {
 </script>
 
 <template>
-  <header>
+  <div>
+    <header>
 
-    <NuxtLink to="/">
-      <img src="public/logo.png">
-    </NuxtLink>
-
-    <div class="login_buttons">
-      <NuxtLink v-show="!authenticated" v-if="$route.path == '/'" to="/login">
-        <button class="button-9" role="button">Ielogoties</button>
+      <NuxtLink to="/">
+        <img src="public/logo.png">
       </NuxtLink>
-      <!--
+
+      <div class="login_buttons">
+        <NuxtLink v-show="!authenticated" v-if="$route.path == '/'" to="/login">
+          <button class="button-9" role="button">Ielogoties</button>
+        </NuxtLink>
+        <!--
             <NuxtLink v-show="!authenticated" to="/register">
               <button>Reģistrēties</button> 
             </NuxtLink>
             -->
-      <button v-show="authenticated" v-if="$route.path == '/'" v-on:click="gotoUserPage" class="button-9" role="button">Mana Odze</button>
-      <button v-show="authenticated" v-if="$route.path != '/'" v-on:click="logoutUser" class="button-9" role="button">Iziet</button>
+        <button v-show="authenticated" v-if="$route.path == '/'" v-on:click="gotoUserPage" class="button-9"
+          role="button">Mana Odze</button>
+        <button v-show="authenticated" v-if="$route.path != '/'" v-on:click="logoutUser" class="button-9"
+          role="button">Iziet</button>
+      </div>
+
+    </header>
+
+    <div>
+      <NuxtPage />
     </div>
-
-  </header>
-
-  <div>
-    <NuxtPage />
   </div>
 </template>
 
